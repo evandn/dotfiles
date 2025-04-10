@@ -1,0 +1,10 @@
+[user]
+	name = Evan Duong
+	email = evanduong@proton.me
+	signingKey = ~/.ssh/id_ed25519.pub
+[gpg]
+	format = ssh
+[commit]
+	gpgSign = true
+[tag]
+	gpgSign = true
