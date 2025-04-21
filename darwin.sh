@@ -49,7 +49,7 @@ EOF
 brew cleanup --prune=all
 
 # Symlink config files
-stow -Rvt "$HOME" common darwin
+stow -Rvt "$HOME" --ignore='\.DS_Store' common darwin
 
 # Set system preferences
 defaults write com.apple.finder AppleShowAllFiles -bool true
