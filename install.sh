@@ -4,10 +4,10 @@
 set -Eeuo pipefail
 
 # Get OS
-OS="$(uname)"
+OS="$(uname | tr '[:upper:]' '[:lower:]')"
 
 # Install dependencies for Linux
-[[ "$OS" == 'Linux' ]] && sudo apt update && sudo apt install -y build-essential git
+[[ "$OS" == 'linux' ]] && sudo apt update && sudo apt install -y build-essential git
 
 # Clone and run OS-specific setup
-git clone https://github.com/evandn/dotfiles.git "$HOME/dotfiles" && cd "$_" && ./"${OS,,}.sh"
+git clone https://github.com/evandn/dotfiles.git "$HOME/dotfiles" && cd "$_" && ./"$OS.sh"
