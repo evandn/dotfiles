@@ -18,8 +18,11 @@ command -v brew &>/dev/null || {
     brew analytics off
 }
 
-# Update Homebrew and install packages
-brew update && brew bundle --file=/dev/stdin <<EOF
+# Update Homebrew and upgrade installed packages
+brew update && brew upgrade
+
+# Install packages
+brew bundle --file=/dev/stdin <<EOF
 brew "fish"
 brew "stow"
 EOF
