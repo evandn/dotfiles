@@ -24,7 +24,10 @@ brew update && brew upgrade
 # Install packages
 brew bundle --file=/dev/stdin <<EOF
 brew "fish"
+brew "go"
+brew "rustup"
 brew "stow"
+brew "oven-sh/bun/bun"
 EOF
 
 # Remove all cache files
