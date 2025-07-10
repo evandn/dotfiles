@@ -23,6 +23,7 @@ brew update && brew upgrade
 
 # Install packages
 brew bundle --file=/dev/stdin <<EOF
+brew "openssh"
 brew "stow"
 
 cask "cleanshot"
@@ -42,9 +43,11 @@ cask "vlc"
 cask "wezterm"
 
 mas "OneDrive", id: 823766827
+mas "PDFgear", id: 6469021132
 mas "Tailscale", id: 1475387142
 mas "Telegram", id: 747648890
 mas "Whisper Transcription", id: 1668083311
+mas "Xcode", id: 497799835
 mas "Yubico Authenticator", id: 1497506650
 EOF
 
