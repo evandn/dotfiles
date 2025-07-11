@@ -40,3 +40,6 @@ stow -Rvt "$HOME" common linux
 grep -q 'brew shellenv' "$HOME/.bashrc" || {
     echo -e '\neval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >>"$_"
 }
+
+# Set default Rust toolchain
+rustup show active-toolchain &>/dev/null || rustup default stable
