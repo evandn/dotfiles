@@ -51,3 +51,12 @@ rustup show active-toolchain &>/dev/null || rustup default stable
 grep -q 'rustup' "$HOME/.profile" || {
     echo -e "\nPATH=\"$(brew --prefix rustup)/bin:\$PATH\"" >>"$_"
 }
+
+# Check if Docker is installed
+command -v docker &>/dev/null || {
+    # Install Docker
+    curl -fsSL https://get.docker.com | sh
+
+    # Add current user to the docker group
+    sudo usermod -aG docker "$USER"
+}
