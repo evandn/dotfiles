@@ -6,6 +6,9 @@ set -Eeuo pipefail
 # Check if running on Linux
 [[ "$(uname)" == 'Linux' ]]
 
+# Update and upgrade system packages
+sudo apt update && sudo apt upgrade -y
+
 # Add Homebrew to PATH
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 
