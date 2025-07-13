@@ -28,8 +28,10 @@ brew update && brew upgrade
 brew bundle --file=/dev/stdin <<EOF
 brew "fish"
 brew "go"
+brew "node"
 brew "rustup"
 brew "stow"
+brew "uv"
 brew "oven-sh/bun/bun"
 EOF
 
