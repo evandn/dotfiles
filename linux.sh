@@ -47,7 +47,7 @@ grep -q 'brew shellenv' "$HOME/.bashrc" || {
 # Set default Rust toolchain
 rustup show active-toolchain &>/dev/null || rustup default stable
 
-# Add Rust to PATH
+# Add Rust toolchain to PATH
 grep -q 'rustup' "$HOME/.profile" || {
     echo -e "\nPATH=\"$(brew --prefix rustup)/bin:\$PATH\"" >>"$_"
 }
