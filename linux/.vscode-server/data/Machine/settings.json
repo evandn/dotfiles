@@ -1,5 +1,5 @@
 {
-  "[jsonc]": {
+  "[jsonc][markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
