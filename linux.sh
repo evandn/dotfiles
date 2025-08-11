@@ -26,12 +26,14 @@ brew update && brew upgrade
 
 # Install packages
 brew bundle --file=/dev/stdin <<EOF
+brew "codex"
 brew "fish"
 brew "go"
 brew "node"
 brew "rustup"
 brew "stow"
 brew "uv"
+brew "zip"
 brew "oven-sh/bun/bun"
 EOF
 
