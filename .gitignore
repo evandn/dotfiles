@@ -1,2 +1,5 @@
 .DS_Store
+
 linux/.vscode-server/
+!linux/.vscode-server/data/Machine/settings.json
+!linux/.vscode-server/data/User/mcp.json
