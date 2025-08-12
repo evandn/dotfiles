@@ -10,4 +10,4 @@ OS="$(uname | tr '[:upper:]' '[:lower:]')"
 [[ "$OS" == 'linux' ]] && sudo apt update && sudo apt install -y build-essential git
 
 # Clone and run OS-specific setup
-git clone https://github.com/evandn/dotfiles.git "$HOME/dotfiles" && cd "$_" && ./"$OS.sh"
+git clone git@github.com:evandn/dotfiles.git "$HOME/dotfiles" && cd "$_" && ./"$OS.sh"
