@@ -63,7 +63,4 @@ command -v docker &>/dev/null || {
 
     # Add current user to the docker group
     sudo usermod -aG docker "$USER"
-
-    # Activate the docker group for the current session
-    newgrp docker
 }
