@@ -26,7 +26,6 @@ brew update && brew upgrade
 
 # Install packages
 brew bundle --file=/dev/stdin <<EOF
-brew "fish"
 brew "go"
 brew "node"
 brew "ouch"
