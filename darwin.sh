@@ -12,7 +12,7 @@ export PATH="/opt/homebrew/bin:$PATH"
 # Check if Homebrew is installed
 command -v brew &>/dev/null || {
     # Install Homebrew
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
     # Disable Homebrew analytics
     brew analytics off
