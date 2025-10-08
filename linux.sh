@@ -42,7 +42,7 @@ brew cleanup --prune=all
 stow -Rvt "$HOME" common linux
 
 # Add Homebrew to shell configuration
-grep -q 'brew shellenv' "$HOME/.bashrc" || {
+grep -q 'brew' "$HOME/.bashrc" || {
     echo -e '\neval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >>"$_"
 }
 
