@@ -3,11 +3,14 @@
 # Enable strict error handling
 set -Eeuo pipefail
 
-# Get OS
+# Get OS name
 OS="$(uname | tr '[:upper:]' '[:lower:]')"
 
-# Install dependencies for Linux
+# Install essential packages for Linux
 [[ "$OS" == 'linux' ]] && sudo apt update && sudo apt install -y build-essential git
 
-# Clone and run OS-specific setup
-git clone git@github.com:evandn/dotfiles.git "$HOME/dotfiles" && cd "$_" && ./"$OS.sh"
+# Clone dotfiles repo if missing
+test -d "$HOME/dotfiles" || git clone git@github.com:evandn/dotfiles.git "$_" && cd "$_"
+
+# Run OS-specific installation
+bash "$OS.sh"
