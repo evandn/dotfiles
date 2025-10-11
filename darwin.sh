@@ -3,9 +3,6 @@
 # Enable strict error handling
 set -Eeuo pipefail
 
-# Check if running on macOS
-[[ "$(uname)" == 'Darwin' ]]
-
 # Add Homebrew to PATH (Apple Silicon)
 export PATH="/opt/homebrew/bin:$PATH"
 
