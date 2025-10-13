@@ -1,0 +1,13 @@
+[user]
+	name = Evan Duong
+	email = evduong@icloud.com
+[init]
+	defaultBranch = main
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	defaultKeyCommand = ssh-add -L
+[commit]
+	gpgSign = true
+[tag]
+	gpgSign = true
