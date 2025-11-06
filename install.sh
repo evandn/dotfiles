@@ -7,7 +7,7 @@ set -Eeuo pipefail
 OS="$(uname | tr '[:upper:]' '[:lower:]')"
 
 # Install essential packages for Linux
-[[ "$OS" == 'linux' ]] && sudo apt update && sudo apt install -y build-essential git
+[[ "$OS" == 'linux' ]] && sudo apt update && sudo apt upgrade -y && sudo apt install -y build-essential git
 
 # Clone dotfiles repo if missing
 test -d "$HOME/dotfiles" || git clone git@github.com:evandn/dotfiles.git "$_" && cd "$_"

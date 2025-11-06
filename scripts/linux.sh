@@ -3,9 +3,6 @@
 # Enable strict error handling
 set -Eeuo pipefail
 
-# Update and upgrade packages
-sudo apt update && sudo apt upgrade -y
-
 # Add Homebrew to PATH
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 
