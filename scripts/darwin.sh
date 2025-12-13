@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Enable strict error handling
-set -Eeuo pipefail
+set -Eeuxo pipefail
 
 # Add Homebrew to PATH (Apple Silicon)
 export PATH="/opt/homebrew/bin:$PATH"

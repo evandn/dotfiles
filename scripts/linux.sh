@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Enable strict error handling
-set -Eeuo pipefail
+set -Eeuxo pipefail
 
 # Add Homebrew to PATH
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
