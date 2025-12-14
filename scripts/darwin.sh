@@ -15,6 +15,7 @@ brew update && brew upgrade
 # Install packages
 brew bundle --file=/dev/stdin <<EOF
 brew "openssh"
+brew "rsync"
 brew "stow"
 brew "evandn/tap/ssh-askpass"
 cask "cleanshot"
