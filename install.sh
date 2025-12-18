@@ -14,3 +14,6 @@ test -d "$HOME/dotfiles" || GIT_SSH_COMMAND='ssh -o StrictHostKeyChecking=no' gi
 
 # Run OS-specific installation
 bash "scripts/$OS.sh"
+
+# Remove unused packages and cache for Linux
+[[ "$OS" == 'linux' ]] && sudo apt autoremove --purge -y && sudo apt clean

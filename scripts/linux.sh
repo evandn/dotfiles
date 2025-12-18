@@ -46,6 +46,3 @@ command -v docker &>/dev/null || {
     # Add current user to the docker group
     sudo usermod -aG docker "$USER"
 }
-
-# Remove unused packages and cache
-sudo apt autoremove --purge -y && sudo apt clean
