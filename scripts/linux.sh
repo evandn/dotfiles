@@ -37,6 +37,9 @@ rustup show active-toolchain &>/dev/null || rustup default stable
 # Add Rust toolchain to PATH
 grep -q 'rustup' "$HOME/.profile" || echo -e "\nPATH=\"$(brew --prefix rustup)/bin:\$PATH\"" >>"$_"
 
+# Add Bun to PATH
+grep -q 'bun' "$HOME/.profile" || echo -e "\nPATH=\"\$HOME/.bun/bin:\$PATH\"" >>"$_"
+
 # Check if Docker is missing
 command -v docker &>/dev/null || {
     # Install Docker
