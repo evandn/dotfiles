@@ -19,6 +19,7 @@
   "remote.SSH.externalSSH_ASKPASS": true,
   "remote.SSH.defaultExtensions": [
     "davidanson.vscode-markdownlint",
+    "lumirelle.shell-format-rev",
     "oderwat.indent-rainbow"
   ]
 }
