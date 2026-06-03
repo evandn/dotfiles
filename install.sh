@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Enable strict error handling
-set -Eeuxo pipefail
+set -Eeuo pipefail
 
 # Get OS name
 OS="$(uname | tr '[:upper:]' '[:lower:]')"
