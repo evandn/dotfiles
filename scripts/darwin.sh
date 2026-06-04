@@ -15,25 +15,17 @@ brew update && brew upgrade
 # Install packages
 brew bundle --file=/dev/stdin <<EOF
 brew "openssh"
-brew "rsync"
 brew "stow"
 brew "evandn/tap/ssh-askpass"
 cask "cleanshot"
-cask "font-jetbrains-mono"
 cask "free-download-manager"
 cask "google-chrome"
-cask "iina"
-cask "logi-options+"
-cask "obsidian"
+cask "mos"
 cask "orbstack"
-cask "proxyman"
-cask "raycast"
-cask "screen-studio"
-cask "ssh-config-editor"
 cask "tableplus"
 cask "tailscale-app"
-cask "visual-studio-code"
-cask "wezterm"
+cask "warp"
+cask "zed"
 EOF
 
 # Remove all cache files
