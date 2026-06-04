@@ -30,16 +30,16 @@ brew cleanup --prune=all
 stow -Rvt "$HOME" common linux
 
 # Add Homebrew to shell configuration
-grep -q 'brew' "$HOME/.bashrc" || echo -e '\neval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >>"$_"
+grep -q brew "$HOME/.bashrc" || echo -e '\neval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >>"$_"
 
 # Set default Rust toolchain
 rustup show active-toolchain &>/dev/null || rustup default stable
 
 # Add Rust toolchain to PATH
-grep -q 'rustup' "$HOME/.profile" || echo -e "\nPATH=\"$(brew --prefix rustup)/bin:\$PATH\"" >>"$_"
+grep -q rustup "$HOME/.profile" || echo -e "\nPATH=\"$(brew --prefix rustup)/bin:\$PATH\"" >>"$_"
 
 # Add Bun to PATH
-grep -q 'bun' "$HOME/.profile" || echo -e "\nPATH=\"\$HOME/.bun/bin:\$PATH\"" >>"$_"
+grep -q bun "$HOME/.profile" || echo -e '\nPATH="$HOME/.bun/bin:$PATH"' >>"$_"
 
 # Check if Docker is missing
 command -v docker &>/dev/null || {

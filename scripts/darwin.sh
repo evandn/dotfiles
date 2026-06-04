@@ -34,5 +34,5 @@ brew cleanup --prune=all
 # Symlink config files
 stow -Rvt "$HOME" --ignore='\.DS_Store' common darwin
 
-# Set system preferences
+# Show hidden files in Finder
 defaults write com.apple.finder AppleShowAllFiles -bool true
