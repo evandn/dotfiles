@@ -1,0 +1,7 @@
+[general]
+login_item = false
+restore_session = false
+
+[privacy]
+telemetry_enabled = false
+crash_reporting_enabled = false

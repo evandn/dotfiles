@@ -1,0 +1,23 @@
+{
+  "theme": "One Dark",
+  "buffer_font_size": 14,
+  "soft_wrap": "editor_width",
+  "line_ending": "enforce_lf",
+  "show_whitespaces": "boundary",
+  "colorize_brackets": true,
+  "indent_guides": {
+    "coloring": "indent_aware",
+    "background_coloring": "indent_aware",
+  },
+  "vim_mode": true,
+  "vim": {
+    "toggle_relative_line_numbers": true,
+  },
+  "search": {
+    "center_on_match": true,
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+}
