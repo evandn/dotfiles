@@ -1,19 +1,9 @@
 #!/bin/bash
 
-# Enable strict error handling
-set -Eeuo pipefail
+set -euo pipefail
 
-# Get OS name
-OS=$(uname | tr '[:upper:]' '[:lower:]')
+if ! test -d $HOME/dotfiles; then
+	mkdir $_ && tar xz --strip-components=1 -f <(curl -fsSL https://github.com/evandn/dotfiles/tarball/HEAD) -C $_
+fi
 
-# Install essential packages for Linux
-[[ $OS == linux ]] && sudo apt update && sudo apt full-upgrade -y && sudo apt install -y build-essential git
-
-# Clone dotfiles repo if missing
-test -d "$HOME/dotfiles" || GIT_SSH_COMMAND='ssh -o StrictHostKeyChecking=no' git clone git@github.com:evandn/dotfiles.git "$_" && cd "$_"
-
-# Run OS-specific installation
-bash "scripts/$OS.sh"
-
-# Remove unused packages and cache for Linux
-[[ $OS == linux ]] && sudo apt autoremove --purge -y && sudo apt clean
+cd $_ && bash scripts/$(uname | tr '[:upper:]' '[:lower:]').sh

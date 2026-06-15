@@ -1,51 +1,43 @@
 #!/bin/bash
 
-# Enable strict error handling
-set -Eeuo pipefail
+set -euo pipefail
 
-# Add Homebrew to PATH
-export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+sudo apt update && sudo apt full-upgrade -y
 
-# Install Homebrew if missing
-command -v brew &>/dev/null || NONINTERACTIVE=1 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+sudo apt install -y build-essential git
 
-# Update Homebrew and upgrade packages
+export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
+
+if ! command -v brew &>/dev/null; then
+	NONINTERACTIVE=1 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
 brew update && brew upgrade
 
-# Install packages
 brew bundle --file=/dev/stdin <<EOF
 brew "go"
 brew "node"
-brew "ouch"
 brew "rustup"
 brew "stow"
 brew "uv"
-brew "oven-sh/bun/bun"
 EOF
 
-# Remove all cache files
+if ! grep -q brew $HOME/.bashrc; then
+	echo -e '\neval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >>$_
+fi
+
+if ! grep -q rustup $HOME/.profile; then
+	echo -e "\nPATH=\"$(brew --prefix rustup)/bin:\$PATH\"" >>$_
+fi
+
+if ! command -v docker &>/dev/null; then
+	curl -fsSL https://get.docker.com | sudo sh
+
+	sudo usermod -aG docker $USER
+fi
+
 brew cleanup --prune=all
 
-# Symlink config files
-stow -Rvt "$HOME" common linux
+sudo apt autoremove --purge -y && sudo apt clean
 
-# Add Homebrew to shell configuration
-grep -q brew "$HOME/.bashrc" || echo -e '\neval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >>"$_"
-
-# Set default Rust toolchain
-rustup show active-toolchain &>/dev/null || rustup default stable
-
-# Add Rust toolchain to PATH
-grep -q rustup "$HOME/.profile" || echo -e "\nPATH=\"$(brew --prefix rustup)/bin:\$PATH\"" >>"$_"
-
-# Add Bun to PATH
-grep -q bun "$HOME/.profile" || echo -e '\nPATH="$HOME/.bun/bin:$PATH"' >>"$_"
-
-# Check if Docker is missing
-command -v docker &>/dev/null || {
-    # Install Docker
-    curl -fsSL https://get.docker.com | sudo sh
-
-    # Add current user to the docker group
-    sudo usermod -aG docker "$USER"
-}
+stow -Rv --no-folding common

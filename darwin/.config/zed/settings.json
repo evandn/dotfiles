@@ -1,36 +1,34 @@
 {
   "theme": "One Dark",
   "buffer_font_size": 14,
-  "soft_wrap": "editor_width",
   "show_whitespaces": "boundary",
+  "soft_wrap": "editor_width",
   "colorize_brackets": true,
   "indent_guides": {
     "coloring": "indent_aware",
-    "background_coloring": "indent_aware",
+    "background_coloring": "indent_aware"
+  },
+  "preview_tabs": {
+    "enabled": false
   },
   "line_ending": "enforce_lf",
-  "vim_mode": true,
-  "vim": {
-    "toggle_relative_line_numbers": true,
-  },
-  "search": {
-    "center_on_match": true,
-  },
-  "edit_predictions": {
-    "provider": "copilot",
-  },
   "telemetry": {
     "diagnostics": false,
-    "metrics": false,
+    "metrics": false
   },
+  "ssh_connections": [
+    {
+      "host": "orb"
+    }
+  ],
   "languages": {
     "Shell Script": {
       "formatter": {
         "external": {
           "command": "shfmt",
-          "arguments": ["--filename", "{buffer_path}"],
-        },
-      },
-    },
-  },
+          "arguments": ["--filename", "{buffer_path}"]
+        }
+      }
+    }
+  }
 }
