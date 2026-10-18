@@ -12,11 +12,10 @@ if ! command -v brew &>/dev/null; then
 	NONINTERACTIVE=1 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-brew update && brew upgrade
-
-brew bundle --file=/dev/stdin <<EOF
+brew upgrade && brew bundle --file=- <<EOF
+brew "bun"
 brew "go"
-brew "node"
+brew "herdr"
 brew "rustup"
 brew "stow"
 brew "uv"
@@ -24,6 +23,10 @@ EOF
 
 if ! grep -q brew $HOME/.bashrc; then
 	echo -e '\neval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >>$_
+fi
+
+if ! grep -q bun $HOME/.profile; then
+	echo -e '\nPATH="$HOME/.bun/bin:$PATH"' >>$_
 fi
 
 if ! grep -q rustup $HOME/.profile; then

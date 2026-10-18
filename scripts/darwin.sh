@@ -8,15 +8,11 @@ if ! command -v brew &>/dev/null; then
 	bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-brew update && brew upgrade
-
-brew bundle --file=/dev/stdin <<EOF
+brew upgrade && brew bundle --file=- <<EOF
 brew "stow"
-cask "free-download-manager"
 cask "google-chrome"
 cask "orbstack"
 cask "tailscale-app"
-cask "zed"
 EOF
 
 defaults write com.apple.finder AppleShowAllFiles -bool true
